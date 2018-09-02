@@ -8,6 +8,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <!-- Materialize Framework-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- My Style CSS-->
   <link rel="stylesheet" type="text/css" href="./assets/style.css">
   <title>Survey</title> 
@@ -16,11 +17,11 @@
 <body>
 <div class="header-cont">
     <div class="my-header">
-        <h3>Survey Questions</h3>
+        <h3>Tell us about yourself</h3>
     </div>
 </div>
 <div class="container">
-    <div class="survey">
+    <form class="survey">
         <br>
         <h5>Question 1</h5>
         <p>Gym, Tan, Laundry is a daily priority.</p>
@@ -35,7 +36,7 @@
         </div>
         <hr>
         <h5>Question 2</h5>
-        <p>On a typical Friday night, you see yourself at a club throwing back vodka club soda.</p>
+        <p>On a typical Friday night, you can be found at a club throwing back vodka club soda.</p>
         <div class="input-field col s12">
             <select>
                 <option value="1">1(Strongly Disagree)</option>
@@ -45,6 +46,7 @@
                 <option value="5">5(Strongly Agree)</option>
             </select>
         </div>
+        <hr>
         <h5>Question 3</h5>
         <p>The beach life is better than the mountain life.</p>
         <div class="input-field col s12">
@@ -56,8 +58,9 @@
                 <option value="5">5(Strongly Agree)</option>
             </select>
         </div>
-        <h5>Question 3</h5>
-        <p>The beach life is better than the mountain life.</p>
+        <hr>
+        <h5>Question 4</h5>
+        <p>Your go-to dance move is pumping your fist aggressively.</p>
         <div class="input-field col s12">
             <select>
                 <option value="1">1(Strongly Disagree)</option>
@@ -67,8 +70,9 @@
                 <option value="5">5(Strongly Agree)</option>
             </select>
         </div>
-        <h5>Question 3</h5>
-        <p>The beach life is better than the mountain life.</p>
+        <hr>
+        <h5>Question 5</h5>
+        <p>When the uber arrives, you're likely to yell obnoxiously loud "Cabs Here!"</p>
         <div class="input-field col s12">
             <select>
                 <option value="1">1(Strongly Disagree)</option>
@@ -78,8 +82,9 @@
                 <option value="5">5(Strongly Agree)</option>
             </select>
         </div>
-        <h5>Question 3</h5>
-        <p>The beach life is better than the mountain life.</p>
+        <hr>
+        <h5>Question 6</h5>
+        <p>Family is the most important thing to keep close in your life.</p>
         <div class="input-field col s12">
             <select>
                 <option value="1">1(Strongly Disagree)</option>
@@ -89,8 +94,9 @@
                 <option value="5">5(Strongly Agree)</option>
             </select>
         </div>
-        <h5>Question 3</h5>
-        <p>The beach life is better than the mountain life.</p>
+        <hr>
+        <h5>Question 7</h5>
+        <p>Out of your colleagues, you're most likely to be hungover on the job.</p>
         <div class="input-field col s12">
             <select>
                 <option value="1">1(Strongly Disagree)</option>
@@ -100,8 +106,9 @@
                 <option value="5">5(Strongly Agree)</option>
             </select>
         </div>
-        <h5>Question 3</h5>
-        <p>The beach life is better than the mountain life.</p>
+        <hr>
+        <h5>Question 8</h5>
+        <p>You spend way too too long getting ready before going out, even if its only to the laundry mat.</p>
         <div class="input-field col s12">
             <select>
                 <option value="1">1(Strongly Disagree)</option>
@@ -111,8 +118,9 @@
                 <option value="5">5(Strongly Agree)</option>
             </select>
         </div>
-        <h5>Question 3</h5>
-        <p>The beach life is better than the mountain life.</p>
+        <hr>
+        <h5>Question 9</h5>
+        <p>A dreams of yours is to be a DJ.</p>
         <div class="input-field col s12">
             <select>
                 <option value="1">1(Strongly Disagree)</option>
@@ -122,14 +130,36 @@
                 <option value="5">5(Strongly Agree)</option>
             </select>
         </div>
-    </div>
+        <hr>
+        <h5>Question 10</h5>
+        <p>Leg day in the gym is a waste of time.</p>
+        <div class="input-field col s12">
+            <select>
+                <option value="1">1(Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5(Strongly Agree)</option>
+            </select>
+        </div>
+        <hr>
+        <button id="survey-btn" class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+        </button>
+    </form>
 </div>
 
 <footer>
-    <a href="home.html">Back to Home</a>
+    <a id="back-btn" href="home.html"><i class="tiny material-icons">chevron_left</i>Back to Home</a>
 </footer>
 
-
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+   <div class="modal-content"></div>
+   <div class="modal-footer">
+     <a href="#!" class="modal-close waves-effect waves-green btn-flat">Return</a>
+   </div>
+</div>
 
 
 
@@ -142,15 +172,38 @@
 <!-- Materialize JavaScript-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
 <script type="text/javascript">
+
 $(document).ready(function(){
+   //materialize select init
    $("select").formSelect();
- });
+   //materialize modal init
+   $('.modal').modal();
 
- function runFriendsQuery() {
-     var currentURL = window.location.origin;
+    $("#survey-btn").on("click", function(event) {
+        event.preventDefault();
+        var scoresArr = [];
+        var selectForm = $(".survey select");
+       
+        selectForm.each(function() {
+            var selectVal = parseInt($(this).val());
+            scoresArr.push(selectVal);
+        })
+        var postArr = {"scores": scoresArr};
+        //post request
+        $.post("/api/friends", postArr).done(function(data) {
+            $('.modal-content h3').remove()
+            $('.modal-content img').remove()
+            $(".modal").modal("open")
+            const h4 = $("<h4>")
+            const img = $("<img>")
+            $(".modal-content").append(h4).append(img);
+            h4.text("You Matched with: " + data.name)
+            img.attr("src", "./assets/" + data.photo)
+        });
+    });
+});
 
-     $.ajax({url: currentURL})
- }
+
 </script>
 
 

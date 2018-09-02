@@ -1,7 +1,7 @@
 var friends = [
     {
         name: "Snooki",
-        photo: "./public/assets/snooki.jpg",
+        photo: "snooki.jpg",
         scores: [
             2,
             3,
@@ -17,7 +17,7 @@ var friends = [
     },
     {
         name: "JWoww",
-        photo: "./public/assets/jwoww.jpg",
+        photo: "jwoww.jpg",
         scores: [
             5,
             5,
@@ -33,7 +33,7 @@ var friends = [
     },
     {
         name: "Sammi",
-        photo: "./public/assets/sammi.jpg",
+        photo: "sammi.jpg",
         scores: [
             3,
             4,
@@ -49,7 +49,7 @@ var friends = [
     },
     {
         name: "Deena",
-        photo: "./public/assets/deena.jpg",
+        photo: "deena.jpg",
         scores: [
             2,
             2,
