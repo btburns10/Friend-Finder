@@ -6,9 +6,20 @@ module.exports = function(app) {
   });
 
   app.post("/api/friends", function(req, res) {
-    var surveyResult = req.body;
+    var userArr = req.body;
 
-    console.log(JSON.stringify(surveyResult) + " sent to api!")
+    console.log(JSON.stringify(userArr))
+    
+    var diffArr = [];
+    var totalDiffSum = 0;
+    for(var i = 0; i < friends.length; i++) {
+      totalDiffSum = 0;
+      for(var k = 0; k < (friends[i].scores).length; k++) {
+        totalDiffSum += Math.abs(userArr.scores[k] - friends[i].scores[k]);
+          diffArr.push(totalDiffSum);
+      }
+    }
+    console.log(diffArr);
     res.json(friends[0]);
   })
 }
