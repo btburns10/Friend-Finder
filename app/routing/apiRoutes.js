@@ -23,7 +23,7 @@ module.exports = function(app) {
       }
       diffArr.push(totalDiffSum);
     }
-    
+
     //response with match from friends api
     minScoreDiff = Array.min(diffArr);
     indexOfMatch = diffArr.indexOf(minScoreDiff);
@@ -31,7 +31,7 @@ module.exports = function(app) {
   })
 }
 
-//array prototype function to find smallest number in array
+//array prototype function to find smallest integer in array
 Array.min = function(array) {
   return Math.min.apply(Math, array);
 };

@@ -167,7 +167,7 @@
 
 
 
-  
+<!-- jQuery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!-- Materialize JavaScript-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
@@ -181,6 +181,7 @@ $(document).ready(function(){
 
     $("#survey-btn").on("click", function(event) {
         event.preventDefault();
+
         var scoresArr = [];
         var selectForm = $(".survey select");
        
@@ -197,7 +198,7 @@ $(document).ready(function(){
             const h4 = $("<h4>")
             const img = $("<img>")
             $(".modal-content").append(h4).append(img);
-            h4.text("You Matched with: " + data.name)
+            h4.text("Matched with: " + data.name + "!")
             img.attr("src", "./assets/" + data.photo)
         });
     });
