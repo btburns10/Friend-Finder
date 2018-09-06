@@ -190,9 +190,10 @@ $(document).ready(function(){
             scoresArr.push(selectVal);
         })
         var postArr = {"scores": scoresArr};
+
         //post request
         $.post("/api/friends", postArr).done(function(data) {
-            $('.modal-content h3').remove()
+            $('.modal-content h4').remove()
             $('.modal-content img').remove()
             $(".modal").modal("open")
             const h4 = $("<h4>")
