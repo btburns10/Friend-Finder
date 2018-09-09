@@ -22,6 +22,15 @@
 </div>
 <div class="container">
     <form class="survey">
+        <div class="user">
+            <div class="user-input">
+                <input type="text" name="name" placeholder="First Name">
+            </div>
+            <div class="user-input">
+                <input type="url" name="imgURL" placeholder="profile pic">
+            </div>
+            <button type="submit" class="btn waves-effect waves-light" id="upload-btn">Upload</button>
+        </div>
         <br>
         <h5>Question 1</h5>
         <p>Gym, Tan, Laundry is a daily priority.</p>
@@ -184,15 +193,20 @@ $(document).ready(function(){
 
         var scoresArr = [];
         var selectForm = $(".survey select");
+        var name = $(".user-input [name='name']").val().trim();
+        var url = $(".user-input [name='imgURL']").val().trim();
        
         selectForm.each(function() {
             var selectVal = parseInt($(this).val());
             scoresArr.push(selectVal);
         })
-        var postArr = {"scores": scoresArr};
+        var userData = {"scores": scoresArr,
+                       "name": name,
+                       "image": url
+                    };
 
-        //post request
-        $.post("/api/friends", postArr).done(function(data) {
+        //post requests
+        $.post("/api/friends", userData).done(function(data) {
             $('.modal-content h4').remove()
             $('.modal-content img').remove()
             $(".modal").modal("open")

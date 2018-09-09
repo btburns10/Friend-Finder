@@ -6,11 +6,12 @@ module.exports = function(app) {
   });
 
   app.post("/api/friends", function(req, res) {
-    var userArr = req.body;
-    console.log(JSON.stringify(userArr) + " survey results sent to API!");
+    var userData = req.body;
+    console.log(JSON.stringify(userData) + " survey results sent to API!");
     
     //set variables
     var diffArr = [];
+    var intArr = [];
     var minScoreDiff;
     var indexOfMatch;
     var totalDiffSum = 0;
@@ -19,7 +20,7 @@ module.exports = function(app) {
     for(var i = 0; i < friends.length; i++) {
       totalDiffSum = 0;
       for(var k = 0; k < (friends[i].scores).length; k++) {
-        totalDiffSum += Math.abs(userArr.scores[k] - friends[i].scores[k]);
+        totalDiffSum += Math.abs(userData.scores[k] - friends[i].scores[k]);
       }
       diffArr.push(totalDiffSum);
     }
@@ -28,6 +29,17 @@ module.exports = function(app) {
     minScoreDiff = Array.min(diffArr);
     indexOfMatch = diffArr.indexOf(minScoreDiff);
     res.json(friends[indexOfMatch]);
+
+    //parse string array to integers
+    for(let int of userData.scores) {
+      intArr.push(parseInt(int));
+    }
+    //push new user info into friends api
+    friends.push({
+      "name": userData.name,
+      "photo": userData.image,
+      "scores": intArr
+    })
   })
 }
 

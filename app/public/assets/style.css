@@ -62,6 +62,18 @@ footer a{
     z-index: 1;
 }
 
+.user {
+    display: flex;
+    padding-top: 30px;
+}
+
+.user-input {
+    background: white;
+    width: 45%;
+    margin-right: 3%;
+    height: 45px;
+}
+
 .input-field {
     max-width: 200px;
     background: white;
@@ -74,7 +86,7 @@ footer a{
     margin: 15px;
 }
 
-.survey button {
+#survey-btn {
     margin: 20px;
 }
 
